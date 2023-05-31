@@ -10,6 +10,7 @@ import {Lid} from "../lid";
 })
 export class LidListComponent implements OnInit {
   lid: Lid[] = [];
+  selectedLid!: Lid;
 
   ngOnInit(): void { this.getAll(); }
   constructor(public lidService: LidService) {}
@@ -21,5 +22,9 @@ export class LidListComponent implements OnInit {
     this.lidService.delete(id).subscribe(
       () => this.getAll()
     )}
+
+  onSelect(lid: Lid) {
+    this.selectedLid = lid
+  }
 }
 

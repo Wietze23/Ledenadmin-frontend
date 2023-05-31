@@ -1,3 +1,9 @@
-<p>lid-list works!</p>
 
-
+<h5>Alle leden</h5>
+<ul class="lid">
+  <li *ngFor="let lid of lid">
+    <button [class.selected]="lid === selectedLid" type="button" (click)="onSelect(lid)">
+      <tr><td><span class="badge">{{lid.id}}</span></td><td><span class="name">{{lid.voornaam}}</span></td><td><span class="name">{{lid.naam}}</span></td><td><span class="name">{{lid.geslacht}}</span></td><td><span class="name">{{lid.geboortedatum}}</span></td></tr>
+    </button>
+  </li>
+</ul>
