@@ -1,0 +1,48 @@
+<p>team-form works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fietswinkel</title>
+  <style>
+    h1  {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rosybrown;
+      color: black;
+      border: black solid 1px;
+      padding-top: 10px;:
+
+    }
+    h2  {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: cornflowerblue;
+      color: black;
+      border: black solid 1px;
+      padding-top: 10px;:
+
+    }
+    table{
+      border: black solid 2px;
+    }
+
+    td {
+      border: black solid 2px;
+      img: width 200px;
+    }
+  </style>
+</head>
+<body>
+
+<p> Opvoeren van een nieuw teamcategorie:</p>
+
+<input type="text" [(ngModel)]="team.categorie"
+       name="team" placeholder="categorie">
+
+<button (click)="add()">Add</button>
+
+
+</body>
+</html>
+
+
