@@ -3,7 +3,29 @@
 <ul class="lid">
   <li *ngFor="let lid of lid">
     <button [class.selected]="lid === selectedLid" type="button" (click)="onSelect(lid)">
-      <tr><td><span class="badge">{{lid.id}}</span></td><td><span class="name">{{lid.voornaam}}</span></td><td><span class="name">{{lid.naam}}</span></td><td><span class="name">{{lid.geslacht}}</span></td><td><span class="name">{{lid.geboortedatum}}</span></td></tr>
-    </button>
+      <tr><td><span class="name">{{lid.voornaam}}</span></td><td><span class="name">{{lid.naam}}</span></td></tr>
+    </button><button (click)="delete(lid.id)">Verwijder</button>
   </li>
 </ul>
+
+<div *ngIf="selectedLid">
+  <h2>{{selectedLid.id }} Details</h2>
+  <div>
+    <label for="voornaam">Voornaam: </label>
+    <input id="voornaam" [(ngModel)]="selectedLid.voornaam" placeholder="voornaam">
+  </div>
+  <div>
+    <label for="naam">Achternaam: </label>
+    <input id="naam" [(ngModel)]="selectedLid.naam" placeholder="naam">
+  </div>
+  <div>
+  <label for="geboortedatum">Geboortedatum: </label>
+  <input id="geboortedatum" [(ngModel)]="selectedLid.geboortedatum" placeholder="geboortedatum">
+</div>
+<div>
+  <label for="geslacht">Geslacht: </label>
+  <input id="geslacht" [(ngModel)]="selectedLid.geslacht" placeholder="geslacht">
+</div>
+  <button (click)="update(selectedLid.id)">Wijzigen</button>
+</div>
+

@@ -19,4 +19,8 @@ export class LidService {
     return this.http.delete(
       'http://localhost:8080/lid/' + id);
   }
+  update(lid: Lid) {
+    return this.http.put(
+      'http://localhost:8080/lid', lid);
+  }
 }

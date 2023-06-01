@@ -26,5 +26,12 @@ export class LidListComponent implements OnInit {
   onSelect(lid: Lid) {
     this.selectedLid = lid
   }
+
+  update(id: number) {
+
+    this.lidService.update(this.selectedLid).subscribe(
+      () => this.getAll()
+    )
+  }
 }
 
