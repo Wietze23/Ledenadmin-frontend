@@ -10,6 +10,7 @@ import {Team} from "../team";
 
   export class TeamListComponent implements OnInit {
   team: Team[] = [];
+  selectedTeam!: Team;
 
   ngOnInit(): void { this.getAll(); }
   constructor(public teamService: TeamService) {}
@@ -21,6 +22,10 @@ import {Team} from "../team";
     this.teamService.delete(id).subscribe(
       () => this.getAll()
     )}
+
+  onSelect(team: Team) {
+    this.selectedTeam = team
+  }
 }
 
 

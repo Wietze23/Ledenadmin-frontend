@@ -1,1 +1,10 @@
 <p>team-list works!</p>
+
+<h5>Alle teams</h5>
+<ul class="team">
+  <li *ngFor="let team of team">
+    <button [class.selected]="team === selectedTeam" type="button" (click)="onSelect(team)">
+      <tr><td><span class="name">{{team.categorie}}</span></td></tr>
+      </button><button (click)="delete(team.id)">Verwijder</button>
+  </li>
+</ul>
