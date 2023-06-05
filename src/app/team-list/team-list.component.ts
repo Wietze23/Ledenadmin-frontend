@@ -26,6 +26,12 @@ import {Team} from "../team";
   onSelect(team: Team) {
     this.selectedTeam = team
   }
+
+  update(id: number) {
+    this.teamService.update(this.selectedTeam).subscribe(
+      () => this.getAll()
+    )
+  }
 }
 
 

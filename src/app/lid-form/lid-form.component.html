@@ -34,6 +34,11 @@
 
 <p> Opvoeren van een nieuw lid:</p>
 
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Gelukt!</strong> Je hebt succesvol een nieuw lid opgevoerd.
+  <button (click)="removeMessageClearFields()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 <input type="text" [(ngModel)]="lid.naam"
        name="lid" placeholder="naam">
 <input type="text" [(ngModel)]="lid.voornaam"

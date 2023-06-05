@@ -8,3 +8,14 @@
       </button><button (click)="delete(team.id)">Verwijder</button>
   </li>
 </ul>
+
+
+<div *ngIf="selectedTeam">
+  <h2>{{selectedTeam.id }} Details</h2>
+  <div>
+    <label for="categorie">Categorie: </label>
+    <input id="categorie" [(ngModel)]="selectedTeam.categorie" placeholder="categorie">
+  </div>
+
+  <button (click)="update(selectedTeam.id)">Wijzigen</button>
+</div>

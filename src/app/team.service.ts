@@ -6,6 +6,8 @@ import {Team} from "./team";
   providedIn: 'root'
 })
 export class TeamService {
+  team!: Team;
+
   constructor(public http: HttpClient) { }
   getAll() {
     return this.http.get<Team[]>(
@@ -18,5 +20,10 @@ export class TeamService {
   delete(id: number) {
     return this.http.delete(
       'http://localhost:8080/team/' + id);
+  }
+
+  update(selectedTeam: Team) {
+    return this.http.put(
+      'http://localhost:8080/team', this.team);
   }
 }

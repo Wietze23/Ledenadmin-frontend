@@ -10,6 +10,7 @@ import {LidService} from "../lid.service";
 })
 export class LidFormComponent implements OnInit{
   lid = new Lid();
+  message: boolean = false;
   @Input() lidList!: LidListComponent;
   constructor(public lidService: LidService) { }
   ngOnInit(): void {}
@@ -17,6 +18,17 @@ export class LidFormComponent implements OnInit{
     this.lidService.save(this.lid).subscribe(
       () => this.lidList.getAll()
     )
+      this.message = true;
+  }
+  removeMessage() {
+    this.message = false;
   }
 
+  removeMessageClearFields() {
+    this.message = true;
+    this.lid.naam = '';
+    this.lid.voornaam = '';
+    this.lid.geboortedatum = '';
+    this.lid.geslacht = '';
+  }
 }
