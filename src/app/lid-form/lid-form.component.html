@@ -45,9 +45,13 @@
        name="lid" placeholder="voornaam">
 <input type="text" [(ngModel)]="lid.geboortedatum"
        name="lid" placeholder="geboortedatum: dd-mm-eejj">
-<input type="text" [(ngModel)]="lid.geslacht"
-       name="lid" placeholder="geslacht: M(an) of V(rouw)">
-<button (click)="add()">Add</button>
+<select [(ngModel)]="selectedGeslacht">
+  <option value="" disabled>Kies geslacht</option>
+  <option *ngFor="let geslacht of geslacht" [value]="geslacht">{{ geslacht }}</option>
+</select>
+
+
+<button (click)="add()">Opslaan</button>
 
 
 </body>

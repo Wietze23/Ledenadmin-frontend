@@ -10,6 +10,9 @@ import {FormsModule} from "@angular/forms";
 import {RouterOutlet} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
+import { LidmaatschapFormComponent } from './lidmaatschap-form/lidmaatschap-form.component';
+import { LidmaatschapListComponent } from './lidmaatschap-list/lidmaatschap-list.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
     LidFormComponent,
     LidListComponent,
     TeamListComponent,
-    TeamFormComponent
+    TeamFormComponent,
+    LidmaatschapFormComponent,
+    LidmaatschapListComponent
   ],
   imports: [
     BrowserModule,
