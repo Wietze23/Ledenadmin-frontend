@@ -34,6 +34,10 @@
 
 <p> Opvoeren van een nieuw teamcategorie:</p>
 
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Gelukt!</strong> Je hebt succesvol een nieuwe teamcategorie opgevoerd.
+  <button (click)="removeMessageClearField()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <input type="text" [(ngModel)]="team.categorie"
        name="team" placeholder="categorie">
 

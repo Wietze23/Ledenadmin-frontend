@@ -1,1 +1,19 @@
-<p>lidmaatschap-list works!</p>
+
+<h5>Alle lidmaatschappen</h5>
+<ul class="lidmaatschap">
+  <li *ngFor="let lidmaatschap of lidmaatschap">
+    <button [class.selected]="lidmaatschap === selectedLidmaatschap" type="button" (click)="onSelect(lidmaatschap)">
+      <tr><td><span class="name">{{lidmaatschap.lid.voornaam}}</span></td><td><span class="name">{{lidmaatschap.lid.naam}}</span></td><td><span class="name">{{lidmaatschap.name}}</span></td><td><span class="name">{{lidmaatschap.team.categorie}}</span></td></tr>
+    </button><button (click)="delete(lidmaatschap.id)">Verwijder</button>
+  </li>
+</ul>
+
+<div *ngIf="selectedLidmaatschap">
+  <h2>Details van lid: {{selectedLidmaatschap.lid.voornaam }} {{selectedLidmaatschap.lid.naam }}</h2>
+
+    <tr><td>Rol in team </td>:<td>{{selectedLidmaatschap.name}}</td></tr>
+    <tr><td>Teamcategorie </td>:<td>{{selectedLidmaatschap.team.categorie}}</td></tr>
+    <tr><td>Geboortedatum </td>:<td>{{selectedLidmaatschap.lid.geboortedatum}}</td></tr>
+    <tr><td>Geslacht </td>:<td>{{selectedLidmaatschap.lid.geslacht}}</td></tr>
+
+</div>

@@ -8,7 +8,7 @@ import {LidmaatschapService} from "../lidmaatschap.service";
   styleUrls: ['./lidmaatschap-list.component.css']
 })
 export class LidmaatschapListComponent implements OnInit{
-  lidmaatschap!: Lidmaatschap[] = [];
+  lidmaatschap: Lidmaatschap[] = [];
   selectedLidmaatschap!: Lidmaatschap;
 
   ngOnInit(): void { this.getAll(); }

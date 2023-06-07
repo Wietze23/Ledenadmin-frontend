@@ -11,12 +11,19 @@ import {Team} from "../team";
 export class TeamFormComponent implements OnInit{
   team = new Team();
   @Input() teamList!: TeamListComponent;
+
+  message: boolean = false;
+
   constructor(public teamService: TeamService) { }
   ngOnInit(): void {}
   add() {
     this.teamService.save(this.team).subscribe(
       () => this.teamList.getAll()
     )
+    this.message = true;
   }
 
+  removeMessageClearField() {
+    this.team.categorie = "";
+  }
 }

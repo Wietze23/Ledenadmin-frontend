@@ -25,9 +25,6 @@ export class LidFormComponent implements OnInit{
     )
       this.message = true;
   }
-  removeMessage() {
-    this.message = false;
-  }
 
   removeMessageClearFields() {
     this.message = true;
