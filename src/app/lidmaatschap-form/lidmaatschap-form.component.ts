@@ -23,4 +23,5 @@ export class LidmaatschapFormComponent implements OnInit{
   }
 
 
+  protected readonly onselect = onselect;
 }

@@ -15,7 +15,6 @@ export class LidFormComponent implements OnInit{
   selectedGeslacht!: string;
   geslacht: string[]= ['Man', 'Vrouw'];
 
-
   constructor(public lidService: LidService) { }
   ngOnInit(): void {}
   add() {

@@ -39,17 +39,41 @@
   <button (click)="removeMessageClearFields()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
-<input type="text" [(ngModel)]="lid.naam"
+<input type="text" required pattern="[a-zA-Z ]*" [(ngModel)]="lid.naam" #naam="ngModel"
        name="lid" placeholder="naam">
-<input type="text" [(ngModel)]="lid.voornaam"
+<div *ngIf="naam.invalid && (naam.dirty || naam.touched)"
+     class="alert">
+
+  <div *ngIf="naam.errors?.['pattern']">
+    Alleen letters invoeren.
+  </div>
+
+
+</div>
+<input type="text" required pattern="[a-zA-Z ]*" [(ngModel)]="lid.voornaam" #voornaam="ngModel"
        name="lid" placeholder="voornaam">
-<input type="text" [(ngModel)]="lid.geboortedatum"
-       name="lid" placeholder="geboortedatum: dd-mm-eejj">
+<div *ngIf="voornaam.invalid && (voornaam.dirty || voornaam.touched)"
+     class="alert">
+
+  <div *ngIf="voornaam.errors?.['pattern']">
+    Alleen letters invoeren.
+  </div>
+</div>
+
+<input type="text" required pattern="[^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$]" [(ngModel)]="lid.geboortedatum" #geboortedatum="ngModel"
+       name="lid" placeholder="geboortedatum: dd-mm-eejj" >
+<div *ngIf="geboortedatum.invalid && (geboortedatum.dirty || geboortedatum.touched)"
+     class="alert">
+
+  <div *ngIf="geboortedatum.errors?.['pattern']">
+    Alleen cijfers en streepjes gebruiken, formaat dd-mm-eejj.
+  </div>
+</div>
+
 <select [(ngModel)]="selectedGeslacht">
   <option value="" disabled>Kies geslacht</option>
   <option *ngFor="let geslacht of geslacht" [value]="geslacht">{{ geslacht }}</option>
 </select>
-
 
 <button (click)="add()">Opslaan</button>
 
