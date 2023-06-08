@@ -4,6 +4,7 @@ import {Team} from "./team";
 export class Lidmaatschap {
   id: number = 0;
   name: string = "";
-  lid!: Lid;
-  team!: Team;
+  lid: Lid = new Lid();
+  team: Team = new Team();
 }
+

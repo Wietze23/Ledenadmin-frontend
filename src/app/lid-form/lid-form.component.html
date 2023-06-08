@@ -60,15 +60,8 @@
   </div>
 </div>
 
-<input type="text" required pattern="[^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$]" [(ngModel)]="lid.geboortedatum" #geboortedatum="ngModel"
+<input type="text" [(ngModel)]="lid.geboortedatum"
        name="lid" placeholder="geboortedatum: dd-mm-eejj" >
-<div *ngIf="geboortedatum.invalid && (geboortedatum.dirty || geboortedatum.touched)"
-     class="alert">
-
-  <div *ngIf="geboortedatum.errors?.['pattern']">
-    Alleen cijfers en streepjes gebruiken, formaat dd-mm-eejj.
-  </div>
-</div>
 
 <select [(ngModel)]="selectedGeslacht">
   <option value="" disabled>Kies geslacht</option>
