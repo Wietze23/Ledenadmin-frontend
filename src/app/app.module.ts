@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { LidmaatschapFormComponent } from './lidmaatschap-form/lidmaatschap-form.component';
 import { LidmaatschapListComponent } from './lidmaatschap-list/lidmaatschap-list.component';
+import { DropdownteamComponent } from './dropdownteam/dropdownteam.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LidmaatschapListComponent } from './lidmaatschap-list/lidmaatschap-list
     TeamListComponent,
     TeamFormComponent,
     LidmaatschapFormComponent,
-    LidmaatschapListComponent
+    LidmaatschapListComponent,
+    DropdownteamComponent
   ],
   imports: [
     BrowserModule,

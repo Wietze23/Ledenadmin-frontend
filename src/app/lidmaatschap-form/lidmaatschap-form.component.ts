@@ -19,6 +19,10 @@ export class LidmaatschapFormComponent implements OnInit{
   leden: string[]= ['Lid1', 'Lid2'];
   selectedRol!: string;
   rollen: string[]= ['Speler', 'Trainer'];
+  selectedTeam!: string;
+  teams: string[]= ['Aspiranten', 'Senioren'];
+
+
   constructor(public lidmaatschapService: LidmaatschapService) { }
   ngOnInit(): void {
 //    LidService.getAll().subscribe(leden => {
