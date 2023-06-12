@@ -12,9 +12,7 @@ export class LidmaatschapService {
   constructor(public http: HttpClient) { }
 
 
-  getDropdownValues(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/lidmaatschap');
-  }
+
 
   getAll() {
     return this.http.get<Lidmaatschap[]>(

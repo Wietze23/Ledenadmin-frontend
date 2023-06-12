@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Team} from "./team";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class TeamService {
     return this.http.get<Team[]>(
       'http://localhost:8080/team');
   }
+
   save(team: Team) {
     return this.http.post(
       'http://localhost:8080/team', team);
@@ -22,6 +24,9 @@ export class TeamService {
       'http://localhost:8080/team/' + id);
   }
 
+  getDropdownValues(): Observable<Team[]> {
+    return this.http.get<Team[]>('http://localhost:8080/team');
+  }
   update(selectedTeam: Team) {
     return this.http.put(
       'http://localhost:8080/team', this.team);

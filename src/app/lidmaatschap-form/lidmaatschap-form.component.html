@@ -11,8 +11,9 @@
   <option *ngFor="let lid of leden" [value]="lid">{{ lid }}</option>
 </select>
 <select [(ngModel)]="selectedTeam">
-  <option value="" disabled>Kies team</option>
-  <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
+    <option value="" disabled>Kies team</option>
+    <option *ngFor="let dropdownValue of dropdownValues" >{{ dropdownValue.categorie }}</option>
+
 </select>
 <input type="number" [(ngModel)]="lidmaatschap.team.id"
        name="team" placeholder="Team-id" >

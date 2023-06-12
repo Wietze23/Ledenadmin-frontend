@@ -15,8 +15,12 @@ import {Team} from "../team";
   ngOnInit(): void { this.getAll(); }
   constructor(public teamService: TeamService) {}
   getAll() {
+    console.log("team-start" )
     this.teamService.getAll().subscribe(
-      data => this.team = data
+      data => {
+        this.team = data
+        console.log("team" + data)
+      }
     )}
   delete(id: number) {
     this.teamService.delete(id).subscribe(
