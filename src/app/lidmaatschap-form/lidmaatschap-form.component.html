@@ -2,12 +2,10 @@
 
 <h5>Koppel leden aan een team</h5>
 
-<select [(ngModel)]="selectedRol">
-  <option value="" disabled>Kies rol in team</option>
-  <option *ngFor="let rol of rollen" [value]="rol">{{ rol }}</option>
-</select>
+
 <select [(ngModel)]="selectedLid">
   <option value="" disabled>Kies lid</option>
+  <option *ngFor="let dropdownValueLid of dropdownValuesLid" >{{ dropdownValueLid.voornaam }}</option>
   <option *ngFor="let lid of leden" [value]="lid">{{ lid }}</option>
 </select>
 <select [(ngModel)]="selectedTeam">
@@ -15,7 +13,11 @@
     <option *ngFor="let dropdownValue of dropdownValues" >{{ dropdownValue.categorie }}</option>
 
 </select>
-<input type="number" [(ngModel)]="lidmaatschap.team.id"
-       name="team" placeholder="Team-id" >
+
+<select [(ngModel)]="selectedRol">
+  <option value="" disabled>Kies rol in team</option>
+  <option *ngFor="let rol of rollen" [value]="rol">{{ rol }}</option>
+</select>
+
 
 <button (click)="add()">Opslaan</button>

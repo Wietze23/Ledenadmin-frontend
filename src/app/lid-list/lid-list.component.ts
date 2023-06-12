@@ -16,7 +16,10 @@ export class LidListComponent implements OnInit {
   constructor(public lidService: LidService) {}
   getAll() {
     this.lidService.getAll().subscribe(
-      data => this.lid = data
+      data => {
+        this.lid = data
+        console.log("lid" + data)
+      }
     )}
   delete(id: number) {
     this.lidService.delete(id).subscribe(
