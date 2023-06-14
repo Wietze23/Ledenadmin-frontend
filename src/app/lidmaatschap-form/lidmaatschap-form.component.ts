@@ -6,6 +6,7 @@ import {LidmaatschapListComponent} from "../lidmaatschap-list/lidmaatschap-list.
 import {Team} from "../team";
 import {LidService} from "../lid.service";
 import {Lid} from "../lid";
+import {HttpErrorResponse} from "@angular/common/http";
 
 
 @Component({
@@ -27,6 +28,7 @@ export class LidmaatschapFormComponent implements OnInit{
   dropdownValues!: Team[];
   dropdownValuesLid!: Lid[];
   message: boolean = false;
+  errormelding: boolean =false;
 
   constructor(public lidmaatschapService: LidmaatschapService, public teamService: TeamService, public lidService: LidService) {
   }
@@ -48,16 +50,35 @@ export class LidmaatschapFormComponent implements OnInit{
     this.lidmaatschap.team.id=this.selectedTeam;
     this.lidmaatschap.name=this.selectedRol;
     this.lidmaatschapService.save(this.lidmaatschap).subscribe(
-      () => this.lidmaatschapList.getAll()
+        () => {
+     //     this.lidmaatschapList.getAll()
+          this.message = true;
+          this.errormelding = false;
+        },
+        (error: HttpErrorResponse) => {
+          if (error.status === 400) {
+            // Bad Request, handle the error message
+            console.log(error.error)
+            this.message = false;
+            this.errormelding = true;
+          } else {
+            // Other error, handle accordingly
+            console.error('An error occurred:', error.error)
+            this.message = false;
+            this.errormelding = true;
+          }
+        }
+
     )
-    this.message = true;
+
   }
 
   removeMessageClearFields() {
-    this.message = true;
+    this.message = false;
     this.lidmaatschap.name = '';
     this.selectedRol = '';
     this.selectedTeam = 0;
     this.selectedLid = 0;
   }
+
 }

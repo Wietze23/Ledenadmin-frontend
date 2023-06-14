@@ -8,6 +8,11 @@
   <button (click)="removeMessageClearFields()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
+<div *ngIf="errormelding" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Mislukt!</strong> Je hebt het veld 'rol' niet gekozen.
+  </div>
+
+
 <select [(ngModel)]="selectedLid">
   <option value="" disabled>Kies lid</option>
   <option *ngFor="let dropdownValueLid of dropdownValuesLid" [value]="dropdownValueLid.id">{{ dropdownValueLid.voornaam }} {{dropdownValueLid.naam}}</option>
