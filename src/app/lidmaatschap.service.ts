@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Lidmaatschap} from "./lidmaatschap";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +9,6 @@ export class LidmaatschapService {
   lidmaatschap!: Lidmaatschap
 
   constructor(public http: HttpClient) { }
-
-
 
 
   getAll() {

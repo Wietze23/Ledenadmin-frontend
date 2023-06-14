@@ -1,16 +1,21 @@
-<p>lidmaatschap-form works!</p>
+
 
 <h5>Koppel leden aan een team</h5>
 
 
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Gelukt!</strong> Je hebt succesvol een lid met een rol aan een team gekoppeld.
+  <button (click)="removeMessageClearFields()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 <select [(ngModel)]="selectedLid">
   <option value="" disabled>Kies lid</option>
-  <option *ngFor="let dropdownValueLid of dropdownValuesLid" >{{ dropdownValueLid.voornaam }}</option>
-  <option *ngFor="let lid of leden" [value]="lid">{{ lid }}</option>
+  <option *ngFor="let dropdownValueLid of dropdownValuesLid" [value]="dropdownValueLid.id">{{ dropdownValueLid.voornaam }} {{dropdownValueLid.naam}}</option>
+
 </select>
 <select [(ngModel)]="selectedTeam">
     <option value="" disabled>Kies team</option>
-    <option *ngFor="let dropdownValue of dropdownValues" >{{ dropdownValue.categorie }}</option>
+    <option *ngFor="let dropdownValue of dropdownValues" [value]="dropdownValue.id">{{ dropdownValue.categorie }}</option>
 
 </select>
 
@@ -18,6 +23,5 @@
   <option value="" disabled>Kies rol in team</option>
   <option *ngFor="let rol of rollen" [value]="rol">{{ rol }}</option>
 </select>
-
 
 <button (click)="add()">Opslaan</button>

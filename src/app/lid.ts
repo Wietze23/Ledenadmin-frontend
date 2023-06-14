@@ -1,5 +1,5 @@
 export class Lid {
-  id: number = 0;
+  id = 0;
   naam: string = "";
   voornaam: string = "";
   geboortedatum: string = "01-01-1900";

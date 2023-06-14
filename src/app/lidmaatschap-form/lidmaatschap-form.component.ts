@@ -20,14 +20,13 @@ export class LidmaatschapFormComponent implements OnInit{
 
   lidmaatschap = new Lidmaatschap();
   @Input() lidmaatschapList!: LidmaatschapListComponent;
-  selectedLid!: string;
-  leden: string[]= ['Lid1', 'Lid2'];
+  selectedLid!: number;
   selectedRol!: string;
   rollen: string[]= ['Speler', 'Trainer'];
-  selectedTeam!: string;
-//  teams: string[]= ['Aspiranten', 'Senioren'];
+  selectedTeam!: number;
   dropdownValues!: Team[];
   dropdownValuesLid!: Lid[];
+  message: boolean = false;
 
   constructor(public lidmaatschapService: LidmaatschapService, public teamService: TeamService, public lidService: LidService) {
   }
@@ -45,9 +44,20 @@ export class LidmaatschapFormComponent implements OnInit{
 
 
   add() {
+    this.lidmaatschap.lid.id=this.selectedLid;
+    this.lidmaatschap.team.id=this.selectedTeam;
+    this.lidmaatschap.name=this.selectedRol;
     this.lidmaatschapService.save(this.lidmaatschap).subscribe(
       () => this.lidmaatschapList.getAll()
     )
+    this.message = true;
   }
 
+  removeMessageClearFields() {
+    this.message = true;
+    this.lidmaatschap.name = '';
+    this.selectedRol = '';
+    this.selectedTeam = 0;
+    this.selectedLid = 0;
+  }
 }
